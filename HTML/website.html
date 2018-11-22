@@ -11,21 +11,23 @@
 <body>
 
 
+
+
 <h1>Un formulaire de connexion en AJAX</h1>
 	
-	<form>
 
 	<p>
 
         Nom d'utilisateur : <input type="text" id="username" />
 
         Mot de passe : <input type="password" id="password" />
+	    	</p>
+	<!-- Here the PHP PART --> 
+        <form action="myphpfile.php">
+  	<input type="submit" value="Se connecter">
+	</form>
 
-        <input type="submit" id="submit" value="Se connecter !" />
 
-    </p>
-
-    </form>
 
 <h1 id="demo">Press on this button for recording</h1>
 <button type="button" onclick="myFunction()">Start</button>
@@ -37,7 +39,7 @@
 <h1 id="demoZ">Make in Progress</h1>
 
 <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
-Your browser does not support the HTML5 canvas tag.</canvas>
+
 
 <script type="text/javascript" src="../JAVASCRIPT/myScript.js">
 
