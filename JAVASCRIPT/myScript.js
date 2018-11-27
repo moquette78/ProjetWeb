@@ -47,7 +47,7 @@ document.getElementById("countdowntimer").textContent = 3;
     if(timeleft <= 0)clearInterval(downloadTimer);
     },1000);    
    
-   
+   a();
    
 }
 
