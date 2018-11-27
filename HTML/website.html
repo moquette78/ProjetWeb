@@ -12,31 +12,29 @@
 
 
 
-
-<h1>Un formulaire de connexion en AJAX</h1>
-	
-
-	<p>
-
-        Nom d'utilisateur : <input type="text" id="username" />
-
-        Mot de passe : <input type="password" id="password" />
-	    	</p>
-	<!-- Here the PHP PART --> 
-        <form action="myphpfile.php">
-  	<input type="submit" value="Se connecter">
-	</form>
+<!-- Start sans retardateur --> 
+<h1 id="startSansRetardateur">Press on this button for recording</h1>
+<button type="button" onclick="sansRedardeteur()" id="SansButton">Start</button>
 
 
-
-<h1 id="demo">Press on this button for recording</h1>
-<button type="button" onclick="myFunction()">Start</button>
+<!-- Start avec retardateur --> 
+<h1 id="startAvecRetardateur">Press on this button for a 3 second delay recording</h1>
+<button type="button" onclick="avecRedardateur()" id="AvecButton"">Start</button> 
+<span id="countdowntimer"> </span>
 <h1 id="X">X Value</h1>
+
+
 <h1 id="demoX">Make in Progress</h1>
 <h1 id="Y">Y Value</h1>
 <h1 id="demoY">Make in Progress</h1>
 <h1 id="Z">Z Value</h1>
 <h1 id="demoZ">Make in Progress</h1>
+
+<!--Stop Button -->
+<button type="button" id="stopButton" onclick ="stopRecording()">Stop</button> 
+
+<br><br>
+
 
 <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
 
@@ -45,4 +43,4 @@
 
 </script>
 </body>
-</html> 
+</html>
