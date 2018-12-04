@@ -1,0 +1,24 @@
+
+h1{
+		font-size : xx-large;
+		color: red;
+		font-size:1em;
+	}
+	
+form{
+	display:inline-block;
+	margin : auto;
+	font-size: 5em;
+	text-align: center;
+    display: flex;
+    flex-direction: column;
+    vertical-align : middle;
+    border: 3px black solid;
+}
+input{
+	height: 50px;
+	width: 300px;
+}
+.bouton{
+	font-size:0.5em;
+}
