@@ -1,6 +1,6 @@
 <?php
 
-    $fichier = fopen('fichier.txt', 'r+'); //ouverture du fichier en lecture et ecriture
+    $fichier = fopen('../fichier.txt', 'r+'); //ouverture du fichier en lecture et ecriture
     $pseudovalide=true;
 
         while($ligne=fgets($fichier)){

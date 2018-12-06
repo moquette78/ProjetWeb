@@ -2,16 +2,17 @@
 <html>
 <head> <meta charset="utf-8" />
     <title>Page de connexion </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css">
     
 </head>
  
 <body>
+    <h1> PROJET WEB</h1>
     <div id="resultati">
         <!-- on affichera une erreur si ca n'est pas bon -->
     </div>
   	
-  	<form action="index.php"><h1> Inscription</h1> <br/><br/>
+  	<form action="index.php"><h2> Inscription</h1> <br/>
         <div><label for="pseudoi"> Pseudo : </label><input type="text" id="pseudoi" /></div>
         <div><label for="mdpi"> Mot de passe : </label> <input type="password" id="mdpi" /></div>
         <input class="bouton" type="submit" id="submiti" value="S'inscrire !" />
@@ -21,7 +22,7 @@
         <!-- on affichera une erreur si ca n'est pas bon -->
     </div>
 
-    <form action="index.php"> <h1>Connexion </h1><br/><br/>
+    <form action="index.php"> <h2>Connexion </h1><br/>
         <div><label for="pseudoc"> Pseudo : </label><input type="text" id="pseudoc" /></div>
         <div><label for="mdpc"> Mot de passe : </label> <input type="password" id="mdpc" /></div>
         <input class="bouton" type="submit" id="submitc" value="Se connecter !" />
@@ -38,7 +39,7 @@ $(document).ready(function(){
         e.preventDefault();   // l'action du submit n'est pas delenchée, on doit dabord faire des verification
  
         $.post(
-            'connexion.php', // pour valider la connexion
+            '../PHP/connexion.php', // pour valider la connexion
             {
                 pseudo : $("#pseudoc").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
                 mdp : $("#mdpc").val()
@@ -66,7 +67,7 @@ $(document).ready(function(){
         e.preventDefault();   // l'action du submit n'est pas delenchée, on doit dabord faire des verification
  
         $.post(
-            'inscription.php', // Un script PHP que l'on va créer juste après
+            '../PHP/inscription.php', // Un script PHP que l'on va créer juste après
             {
                 pseudo : $("#pseudoi").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
                 mdp : $("#mdpi").val()
