@@ -89,6 +89,39 @@ $(document).ready(function(){
          );
     });
 
+    $('#pseudoi').on('input',function() {
+
+            var pseudo = $('#pseudoi').val();
+            if (pseudo !=""){
+
+                $.post(
+                '../PHP/pseudodispo.php', // pour valider la connexion
+            {
+                pseudo : pseudo
+            },
+ 
+            function(data){
+ 
+                if(data == 'Success'){
+                     // Le membre est connecté. Ajoutons lui un message dans la page HTML.
+ 
+                    $('#pseudoi').css('background-color','rgba(255, 0, 0, 0.5)');
+                }
+                else{
+                     // Le membre n'a pas été connecté. (data vaut ici "failed")
+ 
+                     $('#pseudoi').css('background-color','rgba(0, 255, 0, 0.5)');
+                }
+         
+            },
+            'text'
+         );
+
+
+                
+            }
+        });
+
 });
  
 </script>
