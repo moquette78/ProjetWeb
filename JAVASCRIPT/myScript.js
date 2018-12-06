@@ -11,7 +11,7 @@ var second = 0;  //For the countUp function
 var x = 0;
 var y = 0;
 var z = 0;
-var SpeedOfRegister = 1000; //for the function RegisterData
+var SpeedOfRegister = 100; //for the function RegisterData
 
 var movements = function(event) {
   
@@ -103,18 +103,20 @@ else {
 }
 
 
+
+//for killing the "setInterval you have to : clearInterval(counterId);
 //Is saving all data every "second";
 function registerData(){
     var counterId = setInterval(function(){
                         countUp();
-                      }, SpeedOfRegister); //SpeedOfRegister = 1000;
+                      }, SpeedOfRegister); //SpeedOfRegister = 1000; so it calls every second countUP();
   
 }
 
-function drawGraph() {
+function drawGraphX() {
   
-  //TODO Le Dessin marche pas encore 
-    c = document.getElementById("myCanvas");
+  //TODO Dessiner marche pas encore 
+    c = document.getElementById("my");
   ctx = c.getContext("2d");
   ctx.moveTo(0, sizeofgraph);
   
@@ -129,8 +131,13 @@ function drawGraph() {
   }
   */
   
-  ctx.lineTo(10,20);
-  ctx.lineTo(20,30);
+
+  for(var i = 0; i < arrX.length; i++){
+	ctx.lineTo(i, sizeofgraph - parseInt(arrX[i],10));
+
+	}
+//  ctx.lineTo(10,20);
+//  ctx.lineTo(20,30);
   ctx.lineWidth = 1;
   ctx.strokeStyle = '#ff0000';
   ctx.stroke(); 
@@ -144,7 +151,7 @@ window.removeEventListener('devicemotion',movements)
 document.getElementById("demoX").innerHTML = arrX.toString(); 
 document.getElementById("demoY").innerHTML = arrY.toString();
 document.getElementById("demoZ").innerHTML = arrZ.toString();
-drawGraph();
+drawGraphX();
   
   
 }
