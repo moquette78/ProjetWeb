@@ -1,0 +1,33 @@
+h1{
+	text-align: center;
+	font-size: 2em;
+}
+
+#resultati, #resultatc{
+	color: red;
+}
+
+h2{
+		font-size : xx-large;
+		color: #FFA500;
+		font-size:1em;
+	}
+	
+form{
+	display:inline-block;
+	margin : auto;
+	font-size: 3em;
+	text-align: center;
+    display: flex;
+    flex-direction: column;
+    vertical-align : middle;
+    border: 3px black solid;
+}
+input{
+	font-size: 1em;
+	height: 50px;
+	width: 300px;
+}
+.bouton{
+	font-size:2em;
+}
