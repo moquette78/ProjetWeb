@@ -22,6 +22,8 @@
 <!-- Start avec retardateur --> 
 <h1 id="startAvecRetardateur">Press on this button for a 3 second delay recording</h1>
 <button type="button" onclick="avecRedardateur()" id="AvecButton"">Start</button> 
+ <hr>
+
 <span id="countdowntimer"> </span>
 <h1 id="X">X Value</h1>
 
@@ -38,8 +40,14 @@
 <br><br>
 
 <!-- Its really important that width and height have the same value as the variable "sizeofgraph" of the javascript file  -->
-<canvas id="my" width="100" height="100" style="border:1px solid #d3d3d3;">
+<canvas id="my" width="100" height="100" style="border:1px solid #d3d3d3;"></canvas>
+<!--add two new graphes--> 
+<canvas id="myY" width="100" height="100" style="border:1px solid #d3d3d3;"></canvas>
+<canvas id="myZ" width="100" height="100" style="border:1px solid #d3d3d3;"></canvas>
 
+
+<p id="ok">Give your Data a Keyword</p> <input type="text" name="keyword" id="keyword" >
+<button type="button" id="sendButton" onclick="sendDonnees()">Send your Data to the Server</button> 
 
 <script type="text/javascript" src="../JAVASCRIPT/myScript.js">
 
