@@ -118,30 +118,77 @@ function drawGraphX() {
   //TODO Dessiner marche pas encore 
     c = document.getElementById("my");
   ctx = c.getContext("2d");
-  ctx.moveTo(0, sizeofgraph);
   
-  //ctx.lineTo(second,sizeofgraph - second);       
+ 
+ // ctx.strokeStyle = '#000000';
+   ctx.moveTo(0,sizeofgraph/2);
+  ctx.lineTo(100,sizeofgraph/2);
   
-  /*var keep = 0;
-  for(var i = 0; i < arrX.length(); i++){
-    ctx.lineTo(i,arrX[i]+keep);
-    document.getElementById("demoZ").innerHTML = sizeofgraph - aarX[i]+keep;
-    
-    keep = arrX[i];
-  }
-  */
+  
+  ctx.moveTo(0, sizeofgraph/2);
+  
+  
   
 
   for(var i = 0; i < arrX.length; i++){
-	ctx.lineTo(i, sizeofgraph - parseInt(arrX[i],10));
+	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrX[i],10));
 
 	}
-//  ctx.lineTo(10,20);
-//  ctx.lineTo(20,30);
+
+
   ctx.lineWidth = 1;
   ctx.strokeStyle = '#ff0000';
   ctx.stroke(); 
 }
+
+
+
+function drawGraphY() {
+  
+  //TODO Dessiner marche pas encore 
+    c = document.getElementById("myY");
+  ctx = c.getContext("2d");
+  
+  ctx.moveTo(0,sizeofgraph/2);
+  ctx.lineTo(100,sizeofgraph/2);
+  
+  ctx.moveTo(0, sizeofgraph/2);
+  
+
+  for(var i = 0; i < arrY.length; i++){
+	ctx.lineTo(i, (sizeofgraph/2) - parseInt(arrY[i],10));
+
+	}
+
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = '#0000ff';
+  ctx.stroke(); 
+}
+
+function drawGraphZ() {
+  
+
+    c = document.getElementById("myZ");
+  ctx = c.getContext("2d");
+  ctx.moveTo(0, sizeofgraph/2);
+    ctx.lineTo(100,sizeofgraph/2);
+  
+  ctx.moveTo(0, sizeofgraph/2);
+ 
+
+  for(var i = 0; i < arrZ.length; i++){
+	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrZ[i],10));
+
+	}
+
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = '#008000';
+  ctx.stroke(); 
+}
+//es kann sein dass man einen neuee variablen brauch für ctx und c; 
+
+
+
 
 
 function stopRecording(){
@@ -152,6 +199,36 @@ document.getElementById("demoX").innerHTML = arrX.toString();
 document.getElementById("demoY").innerHTML = arrY.toString();
 document.getElementById("demoZ").innerHTML = arrZ.toString();
 drawGraphX();
+drawGraphY();
+drawGraphZ();
   
   
+    
+  
+}
+
+
+function sendDonnees() {
+  
+  
+ //document.getElementById("demoZ").innerHTML = document.getElementById("keyword").value; 
+ if(document.getElementById("keyword").value === ""){
+   
+   document.getElementById("ok").innerHTML = "Keyword can't be empty";
+   
+   console.log(" empty, not good");
+ } 
+ 
+ else{
+   document.getElementById("ok").innerHTML = "Data are sended";
+   console.log("not empty, good");
+   sendData(); 
+ }
+}
+
+
+function sendData() {
+  
+  var ar = <?php echo json_encode($ar) ?>;
+  console.log(pseudo); 
 }
