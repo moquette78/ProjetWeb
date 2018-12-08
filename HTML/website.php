@@ -47,7 +47,8 @@
 
 
 <p id="ok">Give your Data a Keyword</p> <input type="text" name="keyword" id="keyword" >
-<button type="button" id="sendButton" onclick="sendDonnees()">Send your Data to the Server</button> 
+<button type="button" id="sendButton" onclick="sendDonnees()">Send your Data to the Server</button>
+<?php session_start(); echo $_SESSION['pseudo']; ?>
 
 <script type="text/javascript" src="../JAVASCRIPT/myScript.js">
 

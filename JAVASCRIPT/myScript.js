@@ -228,7 +228,5 @@ function sendDonnees() {
 
 
 function sendData() {
-  
-  var ar = <?php echo json_encode($ar) ?>;
-  console.log(pseudo); 
+
 }

@@ -6,7 +6,9 @@
             $mots = explode(" ", $ligne);
             if ($mots[0]== $_POST['pseudo']) {
                 if (trim($mots[1])==$_POST['mdp']) {
-                	echo "Success";
+                    session_start();
+                    $_SESSION["pseudo"]=$_POST['pseudo'];
+                    echo "Success";
                 	$valide=true;
                 	break;
                 }

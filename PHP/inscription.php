@@ -12,7 +12,9 @@
         }
         if($pseudovalide){
             fputs($fichier, $_POST['pseudo']." ".$_POST['mdp']."\n");
-            echo "Success";
+                session_start();
+                $_SESSION["pseudo"]=$_POST['pseudo'];
+                echo "Success";
         }
         fclose($fichier);
 ?>
