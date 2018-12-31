@@ -5,7 +5,7 @@
 </head>
 
 <body>
-	<?php session_start (); echo $_SESSION['keyword']; ?>
+	<?php session_start (); echo $_SESSION['keyword']; echo $_SESSION['x']; echo $_SESSION['date']; ?>
 
 </body>
 

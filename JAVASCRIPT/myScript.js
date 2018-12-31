@@ -207,34 +207,35 @@
     
   }
 
-
-    
-
-  $("#sendButton").click(function(){
-     if(document.getElementById("keyword").value === ""){
+function sendDonnees(){
+if(document.getElementById("keyword").value === ""){
      
      document.getElementById("ok").innerHTML = "Keyword can't be empty";
-     
-     console.log(" empty, not good");
-   } 
-   else{
-     document.getElementById("ok").innerHTML = "Data are sended";
-     console.log("not empty, good");
+   } else{
 
      $.ajax({
-         url : '../PHP/envoi_record.php',
+         url : '../PHP/envoi.php',
          type : 'POST', // Le type de la requête HTTP, ici devenu POST
          data: { 
           'x':arrX, 
           'y':arrY, 
           'z':arrZ,
-          'keyword' : $("#keyword").val(), 
-      }
+          'keyword' : $("#keyword").val()
+      },
+      success: function(msg){
+        document.location.href="../HTML/affichage.php";
+  },
+  error: function(XMLHttpRequest, textStatus, errorThrown) {
+     alert("some error");
+  } 
     });
-   }
-      
-     
-  });
+   }  
+}
+
+
+    
+
+
 
 
 

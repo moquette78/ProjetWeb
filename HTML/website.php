@@ -50,7 +50,7 @@
 <button type="button" id="sendButton" onclick="sendDonnees()">Send your Data to the Server</button>
 <?php session_start(); echo $_SESSION['pseudo']; ?>
 
-<script src="jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
 <script type="text/javascript" src="../JAVASCRIPT/myScript.js">
 
 </script>
