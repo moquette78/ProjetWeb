@@ -9,29 +9,13 @@
 
 
 <?php
-//Find User Data 
-function find_information_ofuser($userName, $json) {
-
-
- $counter = 0;
- foreach($json["user"] as $sub_json){
-	if($sub_json === $_POST['userData'])
-		return $counter;
-	else
-		$counter++;
- }	
-}
-
- echo "You choosed user: " . $_POST['userData'] . "<br>";
+ echo "You choosed user: " . $_POST['userData'] . "<br><br>";
  $json =  file_get_contents("../JSON/document.json");
  $json = json_decode($json,true);
  
- $index = find_information_ofuser($_POST['userData'],$json);
  
- 
- echo " Your Keyword: " . $json["keyword"][$index] . "<br>";
- echo " Date of recording " . $json["date"][$index] . "<br>";
-
+ foreach(array_keys($json["user"],$_POST['userData']) as $index)	
+ 	echo " Your Keyword: \"" . $json["keyword"][$index] . "\" Date of recording: " . $json["date"][$index] . "<br>"; 
 ?>
 
 </body>
