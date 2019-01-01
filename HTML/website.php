@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 
@@ -9,9 +9,37 @@
 </head>
 
 <body>
+
+
 <form action="../PHP/deconnexion.php">
 	<input id="deco" type="submit" value="Se deconnecter">
 </form>
+
+
+
+
+<form action ="../PHP/showdata.php" method = "POST">
+
+
+<?php session_start(); //echo $_SESSION['pseudo']; 
+
+ $json =  file_get_contents("../JSON/document.json");
+ $json = json_decode($json,true);
+ //print_r($json); 
+ // -- Creat Liste of Users 
+	$count = 0;	
+	echo "Choose one user and see his data ";
+	echo "<select name='userData'>";
+	foreach($json["user"] as $value)
+	echo "<option value='". $value . "'>" . $value . "</option>";
+	echo "<select>";
+
+	
+
+?>
+<input type ="submit" value="Show Data of User"/>
+</form>
+
 
 
 <!-- Start sans retardateur --> 
@@ -48,7 +76,7 @@
 
 <p id="ok">Give your Data a Keyword</p> <input type="text" name="keyword" id="keyword" >
 <button type="button" id="sendButton" onclick="sendDonnees()">Send your Data to the Server</button>
-<?php session_start(); echo $_SESSION['pseudo']; ?>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
 <script type="text/javascript" src="../JAVASCRIPT/myScript.js">
