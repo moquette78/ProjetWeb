@@ -25,12 +25,13 @@
 
  $json =  file_get_contents("../JSON/document.json");
  $json = json_decode($json,true);
+	 
  //print_r($json); 
  // -- Creat Liste of Users 
 	$count = 0;	
 	echo "Choose one user and see his data ";
 	echo "<select name='userData'>";
-	foreach($json["user"] as $value)
+	foreach(array_unique($json["user"]) as $value)
 	echo "<option value='". $value . "'>" . $value . "</option>";
 	echo "<select>";
 
