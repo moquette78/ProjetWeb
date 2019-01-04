@@ -16,13 +16,6 @@
 </form>
 
 
-<input type="date" id="start" name="trip-start"
-       value="2018-07-22"
-       min="2018-01-01" max="2018-12-31">
-<input type="date" id="start" name="trip-start"
-       value="2018-07-22"
-       min="2018-01-01" max="2018-12-31">
-<input type="text" name="keyword" id="keyword" >
 
 
 <form action ="../PHP/showdata.php" method = "POST">
@@ -31,9 +24,7 @@
 <?php session_start(); //echo $_SESSION['pseudo']; 
 
  $json =  file_get_contents("../JSON/document.json");
- $json = json_decode($json,true);
- 
-	 
+ $json = json_decode($json,true); 
  //print_r($json); 
  // -- Creat Liste of Users 
 	$count = 0;	
@@ -42,10 +33,14 @@
 	foreach(array_unique($json["user"]) as $value)
 	echo "<option value='". $value . "'>" . $value . "</option>";
 	echo "<select>";
-
-	
-
 ?>
+
+<input type="date" id="trip_start" name="start_date"
+       min="2018-01-01" max="2019-12-31" required>
+<input type="date" id="trip_fin" name="fin_date"
+       min="2018-01-01" max="2019-12-31" required>
+<input type="text" name="keyword_data" required placeholder="Keyword" >
+
 <input type ="submit" value="Show Data of User"/>
 </form>
 
@@ -92,4 +87,4 @@
 
 </script>
 </body>
-</html> 
+</html>
