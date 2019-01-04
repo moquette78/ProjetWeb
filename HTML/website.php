@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
 
@@ -16,6 +16,13 @@
 </form>
 
 
+<input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31">
+<input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31">
+<input type="text" name="keyword" id="keyword" >
 
 
 <form action ="../PHP/showdata.php" method = "POST">
@@ -25,6 +32,7 @@
 
  $json =  file_get_contents("../JSON/document.json");
  $json = json_decode($json,true);
+ 
 	 
  //print_r($json); 
  // -- Creat Liste of Users 
