@@ -9,11 +9,13 @@
 </head>
 
 <body>
-
+<header>
 <h1 id="headline">Record your moves</h1><hr>
 <form action="../PHP/deconnexion.php">
+	<input id="show" type="submit" value="Voir mes enregistrements">
 	<input id="deco" type="submit" value="Se deconnecter">
 </form>
+</header>
 
 
 
