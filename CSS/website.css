@@ -1,3 +1,4 @@
+
 #headline {
 
 	text-align: center;
@@ -40,7 +41,7 @@ header form{
 	text-align: right;
 }
 
-#show, #deco{
+#deco{
 	border:none;
 	padding:6px 0 6px 0;
 	border-radius:2px;
@@ -48,4 +49,31 @@ header form{
 	background:red;
 	font:bold 13px Arial;
 	color:white;
+}
+
+#coordinates h1 {
+
+  display: inline;
+    
+}
+
+.wrapper {
+    
+    margin: 0 auto;
+}
+
+#coordinates {
+    float:left;
+}
+
+#graphs
+{
+    padding-left : 500px;
+}
+
+#refreshButton {
+	float: right;
+	width:130px;
+	height:60px;
+
 }
