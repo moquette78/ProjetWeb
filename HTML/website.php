@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
 
@@ -10,7 +10,7 @@
 
 <body>
 
-
+<h1 id="headline">Record your moves</h1><hr>
 <form action="../PHP/deconnexion.php">
 	<input id="deco" type="submit" value="Se deconnecter">
 </form>
@@ -44,21 +44,23 @@
        min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)">
 
 <input type="text" id="keyword_data" name="keyword_data" required placeholder="Keyword" onkeyup="showHint(this.value)" >
-<p>Suggestions-Keywords: <p id="txtHint" name="txtHint">Keys</p></p>
 <input  value="Show Data of User" type ="submit"/>
+<br>
+<p id="suggest">Suggestions-Keywords: <span id="txtHint" name="txtHint">Keys</span></p>
 </form>
 
 
 
 <!-- Start sans retardateur --> 
-<h1 id="startSansRetardateur">Press on this button for recording</h1>
-<button type="button" onclick="sansRedardeteur()" id="SansButton">Start</button>
+<h1 id="startSansRetardateur" >Press on this button for recording</h1>
+<button type="button" onclick="sansRedardeteur()" id="SansButton">Start</button><br><br>
 
 
 <!-- Start avec retardateur --> 
 <h1 id="startAvecRetardateur">Press on this button for a 3 second delay recording</h1>
-<button type="button" onclick="avecRedardateur()" id="AvecButton"">Start</button> 
- <hr>
+<button type="button" onclick="avecRedardateur()" id="AvecButton">Start</button> 
+ 
+<hr>
 
 <span id="countdowntimer"> </span>
 <h1 id="X">X Value</h1>
@@ -92,7 +94,3 @@
 </script>
 </body>
 </html> 
-
-
-
-
