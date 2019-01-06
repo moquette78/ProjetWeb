@@ -21,7 +21,6 @@ form{
     display: flex;
     flex-direction: column;
     vertical-align : middle;
-    border: 3px black solid;
 }
 input{
 	font-size: 1em;
@@ -30,4 +29,11 @@ input{
 }
 .bouton{
 	font-size:0.8em;
+	padding:6px 0 6px 0;
+	font:Bold 13px Arial;
+	background:#d34836;
+	color:#fff;
+	width:90px;
+	border-radius:2px;
+	border:none;
 }
