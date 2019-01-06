@@ -13,8 +13,8 @@
     </div>
   	<fieldset>
   	<form action="index.php"><h2> Inscription</h1> 
-        <div><label for="pseudoi"> Pseudo : </label><input type="text" id="pseudoi" /></div>
-        <div><label for="mdpi"> Mot de passe : </label> <input type="password" id="mdpi" /></div>
+        <div><label for="pseudoi" id="forpseudoi"> Pseudo : </label><input type="text" id="pseudoi" /></div>
+        <div><label for="mdpi" id="formdpi" > Mot de passe : </label> <input type="password" id="mdpi" /></div>
         <input class="bouton" type="submit" id="submiti" value="S'inscrire !" />
     </form>
     </fieldset>
@@ -24,8 +24,8 @@
     </div>
     <fieldset>
     <form action="index.php"> <h2>Connexion </h1>
-        <div><label for="pseudoc"> Pseudo : </label><input type="text" id="pseudoc" /></div>
-        <div><label for="mdpc"> Mot de passe : </label> <input type="password" id="mdpc" /></div>
+        <div><label for="pseudoc" id="forpseudoc"> Pseudo : </label><input type="text" id="pseudoc" /></div>
+        <div><label for="mdpc" id="formdpc"> Mot de passe : </label> <input type="password" id="mdpc" /></div>
         <input class="bouton" type="submit" id="submitc" value="Se connecter !" />
     </form>
     </fieldset> <br/>
@@ -34,8 +34,35 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>
- 
+
+
 $(document).ready(function(){
+
+    $("#pseudoi").focus(function(){
+        $("#forpseudoi").css("color", "red");
+    });
+    $("#pseudoi").focusout(function(){
+        $("#forpseudoi").css("color", "black");
+    });
+    $("#mdpi").focus(function(){
+        $("#formdpi").css("color", "red");
+    });
+    $("#mdpi").focusout(function(){
+        $("#formdpi").css("color", "black");
+    });
+
+    $("#pseudoc").focus(function(){
+        $("#forpseudoc").css("color", "red");
+    });
+    $("#pseudoc").focusout(function(){
+        $("#forpseudoc").css("color", "black");
+    });
+    $("#mdpc").focus(function(){
+        $("#formdpc").css("color", "red");
+    });
+    $("#mdpc").focusout(function(){
+        $("#formdpc").css("color", "black");
+    });
  
     $("#submitc").click(function(e){  // lorsque l'on click sur le bouton d'envoie
         e.preventDefault();   // l'action du submit n'est pas delenchée, on doit dabord faire des verification
