@@ -1,5 +1,6 @@
 <?php
 
+    session_start();
     $fichier = fopen('../fichier.txt', 'r+'); //ouverture du fichier en lecture et ecriture
     $pseudovalide=true;
 
