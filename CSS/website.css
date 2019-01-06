@@ -35,3 +35,17 @@
 	border-radius:50%;
 	color:#555;
 }
+
+header form{
+	text-align: right;
+}
+
+#show, #deco{
+	border:none;
+	padding:6px 0 6px 0;
+	border-radius:2px;
+	box-shadow:1px 1px 3px #aaa;
+	background:red;
+	font:bold 13px Arial;
+	color:white;
+}
