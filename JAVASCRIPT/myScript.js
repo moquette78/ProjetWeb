@@ -12,6 +12,8 @@
   var y = 0;
   var z = 0;
   var SpeedOfRegister = 100; //for the function RegisterData
+  var registerDataId = 0;
+
 
   var movements = function(event) {
     
@@ -49,8 +51,6 @@
     document.getElementById('startAvecRetardateur').remove();
     document.getElementById('AvecButton').remove();
     document.getElementById('SansButton').remove();
-    
-
     
     //Hier listener installieren
     window.addEventListener('devicemotion',movements);
@@ -107,29 +107,22 @@
   //for killing the "setInterval you have to : clearInterval(counterId);
   //Is saving all data every "second";
   function registerData(){
-      var counterId = setInterval(function(){
+      registerDataId = setInterval(function(){
                           countUp();
                         }, SpeedOfRegister); //SpeedOfRegister = 1000; so it calls every second countUP();
     
   }
 
   function drawGraphX() {
-    
-    //TODO Dessiner marche pas encore 
-      c = document.getElementById("my");
+     
+    c = document.getElementById("my");
     ctx = c.getContext("2d");
     
-   
    // ctx.strokeStyle = '#000000';
-     ctx.moveTo(0,sizeofgraph/2);
+    ctx.moveTo(0,sizeofgraph/2);
     ctx.lineTo(100,sizeofgraph/2);
-    
-    
     ctx.moveTo(0, sizeofgraph/2);
     
-    
-    
-
     for(var i = 0; i < arrX.length; i++){
   	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrX[i],10));
 
@@ -146,15 +139,12 @@
   function drawGraphY() {
     
     //TODO Dessiner marche pas encore 
-      c = document.getElementById("myY");
+    c = document.getElementById("myY");
     ctx = c.getContext("2d");
-    
     ctx.moveTo(0,sizeofgraph/2);
     ctx.lineTo(100,sizeofgraph/2);
-    
     ctx.moveTo(0, sizeofgraph/2);
     
-
     for(var i = 0; i < arrY.length; i++){
   	ctx.lineTo(i, (sizeofgraph/2) - parseInt(arrY[i],10));
 
@@ -168,11 +158,10 @@
   function drawGraphZ() {
     
 
-      c = document.getElementById("myZ");
+    c = document.getElementById("myZ");
     ctx = c.getContext("2d");
     ctx.moveTo(0, sizeofgraph/2);
-      ctx.lineTo(100,sizeofgraph/2);
-    
+    ctx.lineTo(100,sizeofgraph/2);
     ctx.moveTo(0, sizeofgraph/2);
    
 
@@ -185,29 +174,23 @@
     ctx.strokeStyle = '#008000';
     ctx.stroke(); 
   }
-  //es kann sein dass man einen neuee variablen brauch für ctx und c; 
-
-
-
-
+ 
 
   function stopRecording(){
 
   window.removeEventListener('devicemotion',movements)
     //Its just for testing I will delete all 
+  clearInterval(registerDataId);
   document.getElementById("demoX").innerHTML = arrX.toString(); 
   document.getElementById("demoY").innerHTML = arrY.toString();
   document.getElementById("demoZ").innerHTML = arrZ.toString();
   drawGraphX();
   drawGraphY();
-  drawGraphZ();
-    
-    
-      
-    
+  drawGraphZ();   
   }
 
 function sendDonnees(){
+
 if(document.getElementById("keyword").value === ""){
      
      document.getElementById("ok").innerHTML = "Keyword can't be empty";
@@ -253,29 +236,27 @@ function showHint(str) {
 }
 
 function compareStrings(str){
- console.log("CompareStrings");
-  if(str.length == 0) {
-	alert("loL");
-}	
-else {
-        var xxmlhttp = new XMLHttpRequest();
-        xxmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-		console.log("Comparetostrings Innerbody" + this.responseText );
-				
-		return this.responseText == "true" ? true : false;			
-            }
-        }; //.open the second parameter is false
-        xxmlhttp.open("GET", "../PHP/searchkeyword.php?key=" + str + "&user=" + document.getElementById("userData").value, false);
+ 
+	console.log("CompareStrings");
+	if(str.length == 0) {
+		alert("loL");
+	}	
+	else {
+        	var xxmlhttp = new XMLHttpRequest();
+        	xxmlhttp.onreadystatechange = function() {
+            	
+		if (this.readyState == 4 && this.status == 200) {
+			console.log("Comparetostrings Innerbody" + this.responseText );				
+			return this.responseText == "true" ? true : false;			
+            	}
+        	}; //.open the second parameter is false
+        
+	xxmlhttp.open("GET", "../PHP/searchkeyword.php?key=" + str + "&user=" + document.getElementById("userData").value, false);
 	//alert(xxmlhttp.readyState);         
 	 xxmlhttp.send();
 	//alert(xxmlhttp.readyState);  
 	console.log("Searchkeyword response: " + xxmlhttp.readyState + xxmlhttp.responseText );
 		
 	return xxmlhttp.responseText == "true" ? true : false;
-
 	}
 }
-//xmlhttp.open("GET", "gethint.php?q=" + str + "&start=" + document.getElementById("userData").value + "&end=" + document.getElementById("trip_fin").value  , true);
-
-
