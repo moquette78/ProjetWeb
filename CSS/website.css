@@ -1,4 +1,27 @@
+#headline {
+
+	text-align: center;
+	font-size: 2em;
+
+}
+
 #deco{
 	position: relative;
 	float: right;
+}
+
+#startSansRetardateur {
+	display: inline;
+}
+
+#startAvecRetardateur {
+	display: inline;
+}
+
+#ok {
+	display: inline;
+}
+
+#suggest {
+	display: inline;
 }
