@@ -1,6 +1,6 @@
  <!DOCTYPE html>
 <html>
-
+<?php session_start();?>
 
 <head>
 
@@ -10,7 +10,7 @@
 
 <body>
 <header>
-<h1 id="headline">Record your moves</h1><hr>
+<h1 id="headline">Record your moves </h1><hr>
 <form action="../PHP/deconnexion.php">
 	<input id="show" type="submit" value="Voir mes enregistrements">
 	<input id="deco" type="submit" value="Se deconnecter">
@@ -18,15 +18,10 @@
 </header>
 
 
-
-
-
-
-
 <form action ="../PHP/showdata.php" method = "POST"  onsubmit="return compareStrings(keyword_data.value);">
 
 
-<?php session_start(); //echo $_SESSION['pseudo']; 
+<?php  //echo $_SESSION['pseudo']; 
 
  $json =  file_get_contents("../JSON/document.json");
  $json = json_decode($json,true); 
