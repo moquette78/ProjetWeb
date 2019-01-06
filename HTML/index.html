@@ -71,6 +71,9 @@ $(document).ready(function(){
     if ($("#pseudoi").val()=="") {
         $("#resultati").html("<p>Pseudo invalide</p>");
     }
+    else if ($("#mdpi").val()=="") {
+        $("#resultati").html("<p>Vous devez rentrer un mot de passe</p>");
+    }
     else{
         $.post(
             '../PHP/inscription.php', // Un script PHP que l'on va créer juste après
