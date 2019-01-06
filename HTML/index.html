@@ -37,7 +37,7 @@ $(document).ready(function(){
  
     $("#submitc").click(function(e){  // lorsque l'on click sur le bouton d'envoie
         e.preventDefault();   // l'action du submit n'est pas delenchée, on doit dabord faire des verification
- 
+        
         $.post(
             '../PHP/connexion.php', // pour valider la connexion
             {
@@ -65,7 +65,11 @@ $(document).ready(function(){
 
     $("#submiti").click(function(e){  // lorsque l'on click sur le bouton d'envoie
         e.preventDefault();   // l'action du submit n'est pas delenchée, on doit dabord faire des verification
- 
+    
+    if ($("#pseudoi").val()=="") {
+        $("#resultati").html("<p>Pseudo invalide</p>");
+    }
+    else{
         $.post(
             '../PHP/inscription.php', // Un script PHP que l'on va créer juste après
             {
@@ -87,6 +91,7 @@ $(document).ready(function(){
             },
             'text'
          );
+    }
     });
 
     $('#pseudoi').on('input',function() {
