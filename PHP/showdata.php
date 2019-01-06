@@ -1,5 +1,6 @@
  <!DOCTYPE html>
 <html>
+<!-- Projet de: Giovanni Simon, Nadime Barhoumi  -->
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="../CSS/website.css">
@@ -19,7 +20,9 @@ p {
 h5 {
     display: inline;	
 }
-
+canvas {
+	display: inline;
+}
    
 </style>
 </head>
