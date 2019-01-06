@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 
@@ -18,7 +18,10 @@
 
 
 
-<form action ="../PHP/showdata.php" method = "POST">
+
+
+
+<form action ="../PHP/showdata.php" method = "POST"  onsubmit="return compareStrings(keyword_data.value);">
 
 
 <?php session_start(); //echo $_SESSION['pseudo']; 
@@ -29,19 +32,20 @@
  // -- Creat Liste of Users 
 	$count = 0;	
 	echo "Choose one user and see his data ";
-	echo "<select name='userData'>";
-	foreach(array_unique($json["user"]) as $value)
+	echo "<select name='userData' id='userData'>";
+	foreach(array_unique($json["user"]) as $value)	
 	echo "<option value='". $value . "'>" . $value . "</option>";
 	echo "<select>";
 ?>
 
 <input type="date" id="trip_start" name="start_date"
-       min="2018-01-01" max="2019-12-31" required>
+       min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)">
 <input type="date" id="trip_fin" name="fin_date"
-       min="2018-01-01" max="2019-12-31" required>
-<input type="text" name="keyword_data" required placeholder="Keyword" >
+       min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)">
 
-<input type ="submit" value="Show Data of User"/>
+<input type="text" id="keyword_data" name="keyword_data" required placeholder="Keyword" onkeyup="showHint(this.value)" >
+<p>Suggestions-Keywords: <p id="txtHint" name="txtHint">Keys</p></p>
+<input  value="Show Data of User" type ="submit"/>
 </form>
 
 
@@ -62,7 +66,7 @@
 <h1 id="count-up">lol</h1>
 <h1 id="demoX">Make in Progress</h1>
 <h1 id="Y">Y Value</h1>
-<h1 id="demoY">Make in Progress</h1>
+	<h1 id="demoY">Make in Progress</h1>
 <h1 id="Z">Z Value</h1>
 <h1 id="demoZ">Make in Progress</h1>
 
@@ -87,4 +91,8 @@
 
 </script>
 </body>
-</html>
+</html> 
+
+
+
+
