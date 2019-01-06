@@ -1,9 +1,8 @@
-
   //For register the movements
 
   var c;
   var ctx;
-  var sizeofgraph = 100; //this value needs the same as the value from the html document
+  var sizeofgraph = 150; //this value needs the same as the value from the html document
   var arrX = ["0"];
   var arrY = ["0"];
   var arrZ = ["0"];
@@ -44,7 +43,6 @@
              arrA.push(a);
              arrB.push(b);
              arrC.push(c);
-
             document.getElementById("count-up").innerText = second;
   }
 
@@ -63,7 +61,7 @@
 
     if (window.DeviceOrientationEvent) {
     //  window.addEventListener("devicemotion", motion, false ); 
-    document.getElementById("startSansRetardateur").innerHTML = "Start enregistrer ";
+    document.getElementById("startSansRetardateur").innerHTML = "<br>Start enregistrer ";
     document.getElementById('startAvecRetardateur').remove();
     document.getElementById('AvecButton').remove();
     document.getElementById('SansButton').remove();
@@ -85,7 +83,7 @@
     
   document.getElementById("countdowntimer").textContent = 3;
 
-  //Both timeouts are nece 
+  // 
     var timeleft = 3;
       var downloadTimer = setInterval(function(){
       timeleft--;
@@ -102,7 +100,8 @@
       document.getElementById('startSansRetardateur').remove();
       document.getElementById('SansButton').remove();
       document.getElementById('AvecButton').remove();
-      document.getElementById("startAvecRetardateur").innerHTML = "Start enregistrer with Delay of 3 seconds ";
+      document.getElementById("countdowntimer").remove();
+      document.getElementById("startAvecRetardateur").innerHTML = "<br>Start enregistrer with Delay of 3 seconds ";
         
       window.addEventListener('devicemotion', movements);
       registerData();
@@ -137,7 +136,7 @@
     
    // ctx.strokeStyle = '#000000';
     ctx.moveTo(0,sizeofgraph/2);
-    ctx.lineTo(100,sizeofgraph/2);
+    ctx.lineTo(sizeofgraph,sizeofgraph/2);
     ctx.moveTo(0, sizeofgraph/2);
     
     for(var i = 0; i < arrX.length; i++){
@@ -155,11 +154,10 @@
 
   function drawGraphY() {
     
-    //TODO Dessiner marche pas encore 
     c = document.getElementById("myY");
     ctx = c.getContext("2d");
     ctx.moveTo(0,sizeofgraph/2);
-    ctx.lineTo(100,sizeofgraph/2);
+    ctx.lineTo(sizeofgraph,sizeofgraph/2);
     ctx.moveTo(0, sizeofgraph/2);
     
     for(var i = 0; i < arrY.length; i++){
@@ -178,7 +176,7 @@
     c = document.getElementById("myZ");
     ctx = c.getContext("2d");
     ctx.moveTo(0, sizeofgraph/2);
-    ctx.lineTo(100,sizeofgraph/2);
+    ctx.lineTo(sizeofgraph,sizeofgraph/2);
     ctx.moveTo(0, sizeofgraph/2);
    
 
@@ -198,9 +196,10 @@
   window.removeEventListener('devicemotion',movements)
     //Its just for testing I will delete all 
   clearInterval(registerDataId);
-  document.getElementById("demoX").innerHTML = arrX.toString(); 
-  document.getElementById("demoY").innerHTML = arrY.toString();
-  document.getElementById("demoZ").innerHTML = arrZ.toString();
+ document.getElementById("stopButton").remove();
+ // document.getElementById("demoX").innerHTML = arrX.toString(); 
+ // document.getElementById("demoY").innerHTML = arrY.toString();
+ // document.getElementById("demoZ").innerHTML = arrZ.toString();
   drawGraphX();
   drawGraphY();
   drawGraphZ();   
