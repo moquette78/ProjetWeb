@@ -11,6 +11,12 @@
   var x = 0;
   var y = 0;
   var z = 0;
+  var a = 0;
+  var b = 0;
+  var c = 0;
+  var arrA = ["0"];
+  var arrB = ["0"];
+  var arrC = ["0"];
   var SpeedOfRegister = 100; //for the function RegisterData
   var registerDataId = 0;
 
@@ -35,8 +41,18 @@
              arrX.push(x);//second);
              arrY.push(y);//second);
              arrZ.push(z);//second);
+             arrA.push(a);
+             arrB.push(b);
+             arrC.push(c);
+
             document.getElementById("count-up").innerText = second;
   }
+
+  function process(event) {
+  a = event.alpha;
+  b = event.beta;
+  c = event.gamma;
+}
 
    //ctx.lineTo(second,sizeofgraph-Math.trunc(event.accelerationIncludingGravity.x));
           
@@ -54,6 +70,7 @@
     
     //Hier listener installieren
     window.addEventListener('devicemotion',movements);
+    window.addEventListener("deviceorientation", process, false);
     registerData();
     }
     else {
@@ -203,6 +220,9 @@ if(document.getElementById("keyword").value === ""){
           'x':arrX, 
           'y':arrY, 
           'z':arrZ,
+          'a':arrA,
+          'b':arrB,
+          'c':arrC,
           'keyword' : $("#keyword").val()
       },
       success: function(msg){
