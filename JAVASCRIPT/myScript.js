@@ -212,7 +212,7 @@ if(document.getElementById("keyword").value === ""){
      
      document.getElementById("ok").innerHTML = "Keyword can't be empty";
    } else{
-
+	//alert("KIK");
      $.ajax({
          url : '../PHP/envoi.php',
          type : 'POST', // Le type de la requête HTTP, ici devenu POST
@@ -233,11 +233,49 @@ if(document.getElementById("keyword").value === ""){
 }
 
 
-    
 
 
+function showHint(str) {
+    if (str.length == 0) {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+		
+            }
+        };
+        xmlhttp.open("GET", "../PHP/gethint.php?q=" + str + "&start=" + document.getElementById("trip_start").value + "&end=" + document.getElementById("trip_fin").value + "&user=" + document.getElementById("userData").value , true);
+        xmlhttp.send();
+    }
+}
 
+function compareStrings(str){
+ console.log("CompareStrings");
+  if(str.length == 0) {
+	alert("loL");
+}	
+else {
+        var xxmlhttp = new XMLHttpRequest();
+        xxmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+		console.log("Comparetostrings Innerbody" + this.responseText );
+				
+		return this.responseText == "true" ? true : false;			
+            }
+        }; //.open the second parameter is false
+        xxmlhttp.open("GET", "../PHP/searchkeyword.php?key=" + str + "&user=" + document.getElementById("userData").value, false);
+	//alert(xxmlhttp.readyState);         
+	 xxmlhttp.send();
+	//alert(xxmlhttp.readyState);  
+	console.log("Searchkeyword response: " + xxmlhttp.readyState + xxmlhttp.responseText );
+		
+	return xxmlhttp.responseText == "true" ? true : false;
 
-
+	}
+}
+//xmlhttp.open("GET", "gethint.php?q=" + str + "&start=" + document.getElementById("userData").value + "&end=" + document.getElementById("trip_fin").value  , true);
 
 
