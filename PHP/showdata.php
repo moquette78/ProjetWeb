@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <!-- Projet de: Giovanni Simon, Nadime Barhoumi  -->
 <?php 
@@ -50,6 +50,7 @@ canvas {
 </br>
 <hr>
 
+</header>
 <h1 id="headline">Show my data</h1><hr>
 
 <form>
