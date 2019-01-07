@@ -2,6 +2,12 @@
 <html>
 <?php session_start();?>
 
+<?php 
+	if(!isset($_SESSION['pseudo'])){
+		header('Location: index.html');
+	}
+?>
+
 <head>
 
     <meta charset="utf-8" />

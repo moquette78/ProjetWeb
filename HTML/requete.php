@@ -1,6 +1,11 @@
 
 <!DOCTYPE html>
 <html>
+<?php 
+	if(!isset($_SESSION['pseudo'])){
+		header('Location: index.html');
+	}
+?>
 <head>
 <title>Requete</title>
 <link rel="stylesheet" type="text/css" href="../CSS/requete.css">
