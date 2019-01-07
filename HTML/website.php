@@ -11,12 +11,12 @@
 <body>
 <header>
 <div>
-	<form action="../HTML/requete.php">
+	<a href="../HTML/requete.php">
 	<input id="requete" type="submit" value="FAIRE UNE REQUETE">
-	</form>
-<form action="../PHP/deconnexion.php">
+	</a>
+<a href="../PHP/deconnexion.php">
 	<input id="deco" type="submit" value="SE DECONNECTER">
-</form>
+</a>
 </div>
 <h1 id="headline">Enregistrer vos mouvements </h1>
 </br>
