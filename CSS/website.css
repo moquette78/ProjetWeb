@@ -19,7 +19,7 @@
 	display: inline;
 }
 
-#ok {
+#description_data {
 	display: inline;
 }
 
@@ -51,9 +51,9 @@
 	
 }
 
-#coordinates h1 {
+#coordinates  {
 
-  display: inline;
+ 
     
 }
 
@@ -82,4 +82,14 @@ header div{
 	width:130px;
 	height:60px;
 
+}
+
+
+tab {
+    display: inline-block; 
+    margin-left: 10px; 
+}
+
+#countdowntimer {
+ color: red;
 }
