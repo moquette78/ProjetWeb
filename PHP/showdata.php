@@ -46,9 +46,8 @@ canvas {
     <input id="deco" type="submit" value="SE DECONNECTER">
 </a>
 </div>
-<h1 id="headline">Enregistrer vos mouvements </h1>
 </br>
-<hr>
+
 
 </header>
 <h1 id="headline">Show my data</h1><hr>
