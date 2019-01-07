@@ -1,6 +1,11 @@
  <!DOCTYPE html>
 <html>
 <!-- Projet de: Giovanni Simon, Nadime Barhoumi  -->
+<?php 
+    if(!isset($_SESSION['pseudo'])){
+        header('Location: ../HTML/index.html');
+    }
+?>
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="../CSS/website.css">
