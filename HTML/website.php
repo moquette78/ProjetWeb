@@ -18,7 +18,7 @@
 	<input id="deco" type="submit" value="SE DECONNECTER">
 </form>
 </div>
-<h1 id="headline">Record your moves </h1>
+<h1 id="headline">Enregistrer vos mouvements </h1>
 </br>
 <hr>
 
@@ -30,12 +30,12 @@
 
 
 <!-- Start sans retardateur --> 
-<h1 id="startSansRetardateur" >Press on this button for recording</h1>
+<h1 id="startSansRetardateur" >Appuyer ici pour enregistrer immédiatement</h1>
 <button type="button" onclick="sansRedardeteur()" id="SansButton">START</button><br><br>
 
 
 <!-- Start avec retardateur --> 
-<h1 id="startAvecRetardateur">Press on this button for a 3 second delay recording</h1>
+<h1 id="startAvecRetardateur">Appuyer ici pour enregistrer avec un retardateur de 3 secondes</h1>
 <button type="button" onclick="avecRedardateur()" id="AvecButton">START</button> 
  
 <hr>
