@@ -71,9 +71,13 @@
 	<div id="graphs">
 <!-- Its really important that width and height have the same value as the variable "sizeofgraph" of the javascript file  -->
 	<canvas id="my" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
-<!--add two new graphes--> 
+<!--add graphes--> 
 	<canvas id="myY" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
 	<canvas id="myZ" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas><br>
+	<canvas id="myA" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas> 
+	<canvas id="myB" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+	<canvas id="myC" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas><br>
+
 	 <h5>Vitesse moyenne X</h5>	
 	</div>
 </div>
