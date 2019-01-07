@@ -28,7 +28,7 @@
 <hr>
 
 </header>
-
+<fieldset>
 <form action ="../PHP/showdata.php" method = "POST"  onsubmit="return compareStrings(keyword_data.value);">
 
 
@@ -38,23 +38,24 @@
  //print_r($json); 
  // -- Creat Liste of Users 
 	$count = 0;	
-	echo "Choose one user and see his data ";
-	echo "<select name='userData' id='userData'>";
+	echo "Choissisez un utilisateur et des paramètres ";
+	echo "<label> Utilisateur : <select name='userData' id='userData'>";
 	foreach(array_unique($json["user"]) as $value)	
 	echo "<option value='". $value . "'>" . $value . "</option>";
-	echo "<select>";
+	echo "<select></label>";
 ?>
 
-<input type="date" id="trip_start" name="start_date"
-       min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)">
-<input type="date" id="trip_fin" name="fin_date"
-       min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)">
+<label>Date de début : <input type="date" id="trip_start" name="start_date"
+       min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)"></label>
+<label>Date de fin : <input type="date" id="trip_fin" name="fin_date"
+       min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)"></label>
 
-<input type="text" id="keyword_data" name="keyword_data" required placeholder="Keyword" onkeyup="showHint(this.value)" >
-<input  value="Show Data of User" type ="submit"/>
+<label>Mot clé : <input type="text" id="keyword_data" name="keyword_data" required placeholder="Keyword" onkeyup="showHint(this.value)" ></label>
+<label><input  value="Show Data of User" type ="submit"/></label>
 <br>
 <p id="suggest">Suggestions-Keywords: <span id="txtHint" name="txtHint">Keys</span></p>
 </form>
+</fieldset>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
 <script type="text/javascript" src="../JAVASCRIPT/myScript.js"></script>
 </body>
