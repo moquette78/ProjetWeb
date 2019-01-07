@@ -11,11 +11,11 @@
 <body>
 <header>
 <div>
-	<form action="../HTML/requette.php">
-	<input id="requette" type="submit" value="Chercher des données">
+	<form action="../HTML/requete.php">
+	<input id="requete" type="submit" value="FAIRE UNE REQUETE">
 	</form>
 <form action="../PHP/deconnexion.php">
-	<input id="deco" type="submit" value="Se deconnecter">
+	<input id="deco" type="submit" value="SE DECONNECTER">
 </form>
 </div>
 <h1 id="headline">Record your moves </h1>
@@ -31,12 +31,12 @@
 
 <!-- Start sans retardateur --> 
 <h1 id="startSansRetardateur" >Press on this button for recording</h1>
-<button type="button" onclick="sansRedardeteur()" id="SansButton">Start</button><br><br>
+<button type="button" onclick="sansRedardeteur()" id="SansButton">START</button><br><br>
 
 
 <!-- Start avec retardateur --> 
 <h1 id="startAvecRetardateur">Press on this button for a 3 second delay recording</h1>
-<button type="button" onclick="avecRedardateur()" id="AvecButton">Start</button> 
+<button type="button" onclick="avecRedardateur()" id="AvecButton">START</button> 
  
 <hr>
 
@@ -65,7 +65,7 @@
 	</div>
 </div>
 <!--Stop Button -->
-<button type="button" id="stopButton" onclick ="stopRecording()">Stop</button> 
+<button type="button" id="stopButton" onclick ="stopRecording()">STOP</button> 
 
 <br><br>
 

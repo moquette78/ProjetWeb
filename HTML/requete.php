@@ -32,6 +32,8 @@
 <br>
 <p id="suggest">Suggestions-Keywords: <span id="txtHint" name="txtHint">Keys</span></p>
 </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+<script type="text/javascript" src="../JAVASCRIPT/myScript.js"></script>
 </body>
 
 </html> 

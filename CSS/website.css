@@ -34,19 +34,21 @@
 	box-shadow:2px 2px 8px #aaa;
 	font:bold 13px Arial;
 	border-radius:50%;
-	color:#555;
+	color:orange;
 }
 
 
-#deco , #requette{
+#deco , #requete{
 	border:none;
 	padding:6px 0 6px 0;
 	border-radius:2px;
 	box-shadow:1px 1px 3px #aaa;
-	background:red;
+	background:orange;
 	font:bold 13px Arial;
-	color:white;
 	margin-right: 10px;
+	width:15em;
+	height:3em;
+	
 }
 
 #coordinates h1 {
