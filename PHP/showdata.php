@@ -57,22 +57,37 @@ $graph_index = $index;
 $xArray = $json["x"][$graph_index];
 $yArray = $json["y"][$graph_index];
 $zArray = $json["z"][$graph_index];
-
+$aArray = $json["a"][$graph_index];
+$bArray = $json["b"][$graph_index];
+$cArray = $json["c"][$graph_index];
 
 ?>
 
 
-
+<div id="topgraph">
 <canvas id="myX" width="250" height="250" style="border:1px solid #d3d3d3;"></canvas>
 <canvas id="myY" width="250" height="250" style="border:1px solid #d3d3d3;"></canvas>
 <canvas id="myZ" width="250" height="250" style="border:1px solid #d3d3d3;"></canvas>
-<img src="xyz.jpeg"  alt="Italian Trulli">
+<img src="xyz.jpeg"  alt="Italian Trulli"><brb><brb>
+
 <br><p>Vitesse moyenne X: <h5 id="xMoyenne">fd</h5></p>  <p><tab>Vitesse moyenne Y: <h5 id="yMoyenne"> fd</h5></p><p><tab>Vitesse moyenne Z:<h5 id="zMoyenne"> fd</h5></p>
+</div>
+
+<div id="lowgraph">
+<canvas id="myA" width="250" height="250" style="border:1px solid #d3d3d3;"></canvas>
+<canvas id="myB" width="250" height="250" style="border:1px solid #d3d3d3;"></canvas>
+<canvas id="myC" width="250" height="250" style="border:1px solid #d3d3d3;"></canvas>
+<br><p>Vitesse moyenne A: <h5 id="aMoyenne">fd</h5></p>  <p><tab>Vitesse moyenne B: <h5 id="bMoyenne"> fd</h5></p><p><tab>Vitesse moyenne C:<h5 id="cMoyenne"> fd</h5></p>
+</div>
 <script type="text/javascript">
 
 	var arrX = <?php echo json_encode ($xArray); ?>;
 	var arrY = <?php echo json_encode ($yArray); ?>;
 	var arrZ = <?php echo json_encode ($zArray); ?>;
+	var arrA = <?php echo json_encode ($aArray); ?>;
+	var arrB = <?php echo json_encode ($bArray); ?>;
+	var arrC = <?php echo json_encode ($cArray); ?>;
+	
 	var sizeofgraph = 250; //this value needs the same as the value from the html document	
 	
 	/*var str = "";
@@ -83,6 +98,11 @@ $zArray = $json["z"][$graph_index];
 	drawGraphZ();
 	drawGraphY();
 	drawGraphX();
+	drawGraphA();
+	drawGraphB();
+	drawGraphC();
+	
+
 
 //The same function as in Myscript.js
 function drawGraphZ() {
@@ -155,6 +175,78 @@ function drawGraphX() {
     ctx.stroke(); 
 
   }
+function drawGraphA() {
+    
+
+    c = document.getElementById("myA");
+    ctx = c.getContext("2d");
+    
+    ctx.moveTo(0,sizeofgraph/2);
+    ctx.lineTo(sizeofgraph,sizeofgraph/2);
+    ctx.moveTo(0, sizeofgraph/2);
+    
+    var moyenne = 0;
+    var i = 0;
+    for(; i < arrA.length; i++){
+  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrA[i],10));
+	moyenne += parseInt(arrA[i],10);
+    }
+    document.getElementById("aMoyenne").innerHTML = Number.parseFloat(moyenne/i).toFixed(2) + " m/s";
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#222222';
+    
+    ctx.stroke(); 
+
+  }
+
+function drawGraphB() {
+    
+
+    c = document.getElementById("myB");
+    ctx = c.getContext("2d");
+    
+    ctx.moveTo(0,sizeofgraph/2);
+    ctx.lineTo(sizeofgraph,sizeofgraph/2);
+    ctx.moveTo(0, sizeofgraph/2);
+    
+    var moyenne = 0;
+    var i = 0;
+    for(; i < arrB.length; i++){
+  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrB[i],10));
+	moyenne += parseInt(arrB[i],10);
+    }
+    document.getElementById("bMoyenne").innerHTML = Number.parseFloat(moyenne/i).toFixed(2) + " m/s";
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#558050';
+    
+    ctx.stroke(); 
+
+  }
+
+function drawGraphC() {
+    
+
+    c = document.getElementById("myC");
+    ctx = c.getContext("2d");
+    
+    ctx.moveTo(0,sizeofgraph/2);
+    ctx.lineTo(sizeofgraph,sizeofgraph/2);
+    ctx.moveTo(0, sizeofgraph/2);
+    
+    var moyenne = 0;
+    var i = 0;
+    for(; i < arrC.length; i++){
+  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrC[i],10));
+	moyenne += parseInt(arrC[i],10);
+    }
+    document.getElementById("cMoyenne").innerHTML = Number.parseFloat(moyenne/i).toFixed(2) + " m/s";
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#908010';
+    
+    ctx.stroke(); 
+
+  }
+
 </script>
 
 </body>
