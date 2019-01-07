@@ -3,9 +3,26 @@
 <html>
 <head>
 <title>Requete</title>
+<link rel="stylesheet" type="text/css" href="../CSS/requete.css">
 </head>
 
 <body>
+
+<header>
+<div>
+	<a href="../HTML/website.php">
+	<input id="requete" type="submit" value="ENREGISTRER DES DONNEES">
+	</a>
+<a href="../PHP/deconnexion.php">
+	<input id="deco" type="submit" value="SE DECONNECTER">
+</a>
+</div>
+<h1 id="headline">Faite une requete </h1>
+</br>
+<hr>
+
+</header>
+
 <form action ="../PHP/showdata.php" method = "POST"  onsubmit="return compareStrings(keyword_data.value);">
 
 
