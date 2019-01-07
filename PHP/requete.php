@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <?php 
+//si l'utilisateur n'est pas connecté , on retourne au menu
 	session_start();
 	if(!isset($_SESSION['pseudo'])){
 		header('Location: index.html');
@@ -31,12 +32,11 @@
 
 <form action ="../PHP/showdata.php" method = "POST"  onsubmit="return compareStrings(keyword_data.value);">
 
-
-<?php  //echo $_SESSION['pseudo']; 
+<?php  
+//formulaire de requete
  $json =  file_get_contents("../JSON/document.json");
  $json = json_decode($json,true); 
- //print_r($json); 
- // -- Creat Liste of Users 
+  
 	$count = 0;	
 	echo "Choose one user and see his data ";
 	echo "<select name='userData' id='userData'>";
