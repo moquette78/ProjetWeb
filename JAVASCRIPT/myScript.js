@@ -189,8 +189,83 @@
     ctx.strokeStyle = '#008000';
     ctx.stroke(); 
   }
- 
+   function drawGraphA() {
+    
 
+    c = document.getElementById("myA");
+    ctx = c.getContext("2d");
+    ctx.moveTo(0, sizeofgraph/2);
+    ctx.lineTo(sizeofgraph,sizeofgraph/2);
+    ctx.moveTo(0, sizeofgraph/2);
+   
+
+    for(var i = 0; i < arrA.length; i++){
+  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrA[i],10));
+
+  	}
+
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#222222';
+    ctx.stroke(); 
+  }
+
+  function drawGraphB() {
+    
+
+    c = document.getElementById("myB");
+    ctx = c.getContext("2d");
+    ctx.moveTo(0, sizeofgraph/2);
+    ctx.lineTo(sizeofgraph,sizeofgraph/2);
+    ctx.moveTo(0, sizeofgraph/2);
+   
+
+    for(var i = 0; i < arrB.length; i++){
+  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrB[i],10));
+
+  	}
+
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#558050';
+    ctx.stroke(); 
+  }
+
+  function drawGraphC() {
+    
+
+    c = document.getElementById("myC");
+    ctx = c.getContext("2d");
+    ctx.moveTo(0, sizeofgraph/2);
+    ctx.lineTo(sizeofgraph,sizeofgraph/2);
+    ctx.moveTo(0, sizeofgraph/2);
+   
+
+    for(var i = 0; i < arrC.length; i++){
+  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrC[i],10));
+
+  	}
+
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#908010';
+    ctx.stroke(); 
+  }
+
+ /* function stopRecording(){
+
+  window.removeEventListener('devicemotion',movements)
+    //Its just for testing I will delete all 
+  clearInterval(registerDataId);
+ document.getElementById("stopButton").remove();
+ // document.getElementById("demoX").innerHTML = arrX.toString(); 
+ // document.getElementById("demoY").innerHTML = arrY.toString();
+ // document.getElementById("demoZ").innerHTML = arrZ.toString();
+  drawGraphX();
+  drawGraphY();
+  drawGraphZ();   
+  drawGraphA();
+  drawGraphB();
+  drawGraphC();
+  }
+	*/
   function stopRecording(){
 
   window.removeEventListener('devicemotion',movements)
@@ -203,6 +278,9 @@
   drawGraphX();
   drawGraphY();
   drawGraphZ();   
+  drawGraphA();
+  drawGraphB();
+  drawGraphC();
   }
 
 function sendDonnees(){
@@ -225,7 +303,7 @@ if(document.getElementById("keyword").value === ""){
           'keyword' : $("#keyword").val()
       },
       success: function(msg){
-        document.location.href="../HTML/affichage.php";
+	document.getElementById("ok").innerHTML = "Date are sended";
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
      alert("some error");
