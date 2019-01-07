@@ -2,6 +2,7 @@
 <html>
 <!-- Projet de: Giovanni Simon, Nadime Barhoumi  -->
 <?php 
+    session_start();
     if(!isset($_SESSION['pseudo'])){
         header('Location: ../HTML/index.html');
     }
