@@ -1,3 +1,6 @@
+//Code from Nadime Barhoumi and Giovanni Simon 
+
+
   //For register the movements
 
   var c;
@@ -16,9 +19,11 @@
   var arrA = ["0"];
   var arrB = ["0"];
   var arrC = ["0"];
+  var countSeconds = 0;
+  var idCountSeconds = 0;
   var SpeedOfRegister = 100; //for the function RegisterData
   var registerDataId = 0;
-
+ 
 
   var movements = function(event) {
     
@@ -43,13 +48,16 @@
              arrA.push(a);
              arrB.push(b);
              arrC.push(c);
-            document.getElementById("count-up").innerText = second;
+
   }
 
   function process(event) {
-  a = event.alpha;
-  b = event.beta;
-  c = event.gamma;
+  a = Math.trunc(event.alpha);
+  b = Math.trunc(event.beta);
+  c = Math.trunc(event.gamma);
+    document.getElementById("demoA").innerHTML = a;
+    document.getElementById("demoB").innerHTML = b;
+    document.getElementById("demoC").innerHTML = c; 
 }
 
    //ctx.lineTo(second,sizeofgraph-Math.trunc(event.accelerationIncludingGravity.x));
@@ -70,6 +78,7 @@
     window.addEventListener('devicemotion',movements);
     window.addEventListener("deviceorientation", process, false);
     registerData();
+    registerSeconds();
     }
     else {
     document.getElementById("startSansRetardateur").innerHTML = "Register not possible ";
@@ -81,13 +90,13 @@
 
   function avecRedardateur() {
     
-  document.getElementById("countdowntimer").textContent = 3;
+  document.getElementById("countdowntimer").textContent = "Decompte: " +   3;
 
   // 
     var timeleft = 3;
       var downloadTimer = setInterval(function(){
       timeleft--;
-      document.getElementById("countdowntimer").textContent = timeleft;
+      document.getElementById("countdowntimer").textContent ="Decompte: " +  timeleft;
       if(timeleft <= 0)clearInterval(downloadTimer);
       },1000);    
 
@@ -101,10 +110,11 @@
       document.getElementById('SansButton').remove();
       document.getElementById('AvecButton').remove();
       document.getElementById("countdowntimer").remove();
-      document.getElementById("startAvecRetardateur").innerHTML = "<br>Start enregistrer with Delay of 3 seconds ";
-        
+      document.getElementById("startAvecRetardateur").innerHTML = "<br>Start enregistrer avec un retardateur de 3 secondes";
       window.addEventListener('devicemotion', movements);
+      window.addEventListener("deviceorientation", process, false);
       registerData();
+      registerSeconds();
       
     }
   else {
@@ -128,10 +138,17 @@
                         }, SpeedOfRegister); //SpeedOfRegister = 1000; so it calls every second countUP();
     
   }
+  function registerSeconds(){
+      idCountSeconds = setInterval(function(){
+                          countSeconds++;
+			            document.getElementById("count-up").innerText = "Seconds: " + countSeconds;
+                        }, 1000); //SpeedOfRegister = 1000; so it calls every second countUP();
+    
+  }
 
   function drawGraphX() {
      
-    c = document.getElementById("my");
+    c = document.getElementById("myX");
     ctx = c.getContext("2d");
     
    // ctx.strokeStyle = '#000000';
@@ -249,46 +266,29 @@
     ctx.stroke(); 
   }
 
- /* function stopRecording(){
-
-  window.removeEventListener('devicemotion',movements)
-    //Its just for testing I will delete all 
-  clearInterval(registerDataId);
- document.getElementById("stopButton").remove();
- // document.getElementById("demoX").innerHTML = arrX.toString(); 
- // document.getElementById("demoY").innerHTML = arrY.toString();
- // document.getElementById("demoZ").innerHTML = arrZ.toString();
-  drawGraphX();
-  drawGraphY();
-  drawGraphZ();   
-  drawGraphA();
-  drawGraphB();
-  drawGraphC();
-  }
-	*/
   function stopRecording(){
 
-  window.removeEventListener('devicemotion',movements)
-    //Its just for testing I will delete all 
+  window.removeEventListener('devicemotion',movements);
+  window.removeEventListener("deviceorientation", process);
   clearInterval(registerDataId);
+  clearInterval(idCountSeconds);
+  
  document.getElementById("stopButton").remove();
  // document.getElementById("demoX").innerHTML = arrX.toString(); 
- // document.getElementById("demoY").innerHTML = arrY.toString();
- // document.getElementById("demoZ").innerHTML = arrZ.toString();
   drawGraphX();
   drawGraphY();
   drawGraphZ();   
   drawGraphA();
   drawGraphB();
   drawGraphC();
-console.log(arrA);
+  //console.log(arrA);
   }
 
 function sendDonnees(){
 
 if(document.getElementById("keyword").value === ""){
      
-     document.getElementById("ok").innerHTML = "Keyword can't be empty";
+     document.getElementById("description_data").innerHTML = "Keyword can't be empty";
    } else{
 	//alert("KIK");
      $.ajax({
@@ -301,10 +301,13 @@ if(document.getElementById("keyword").value === ""){
           'a':arrA,
           'b':arrB,
           'c':arrC,
+	  'seconds': countSeconds,
           'keyword' : $("#keyword").val()
       },
       success: function(msg){
-	document.getElementById("ok").innerHTML = "Date are sended";
+	document.getElementById("description_data").innerHTML = "Data are sended";
+	document.getElementById('sendButton').remove();
+	document.getElementById('keyword').remove();
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
      alert("some error");
