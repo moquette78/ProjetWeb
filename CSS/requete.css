@@ -1,0 +1,26 @@
+
+#headline {
+
+	text-align: center;
+	font-size: 2em;
+
+}
+
+#deco , #requete{
+	border:none;
+	padding:6px 0 6px 0;
+	border-radius:2px;
+	box-shadow:1px 1px 3px #aaa;
+	background:orange;
+	font:bold 13px Arial;
+	margin-right: 10px;
+	width:15em;
+	height:3em;
+	
+}
+
+header div{
+	display : flex;
+	float : right;
+	
+}
