@@ -26,6 +26,7 @@ $json_data['z'][]=$_POST['z'];
 $json_data['a'][]=$_POST['a'];
 $json_data['b'][]=$_POST['b'];
 $json_data['c'][]=$_POST['c'];
+$json_data['seconds'][]=$_POST['seconds'];
 
 $jsonData = json_encode($json_data);
 print_r($json_data);
