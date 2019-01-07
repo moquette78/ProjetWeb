@@ -46,28 +46,31 @@
  
 <hr>
 
-<span id="countdowntimer"> </span>
-<h1 id="count-up">Time Passed</h1>
+<h1><span id="countdowntimer"> </span></h1>
+<h1 id="count-up">Seconds:</h1>
 
 <div class="wrapper">
 <div id="coordinates"> 
-	<h1 id="X">X Value: <h1 id="demoX"></h1></h1><br>
-	<h1 id="Y">Y Value: <h1 id="demoY"></h1></h1><br>
-	<h1 id="Z">Z Value: <h1 id="demoZ"></h1></h1>
+	<h4 id="X" style="display:inline">Acceleration direction x Value: <h4 id="demoX" ></h4></h4>
+	<h4 id="Y">Acceleration direction y Value: <h4 id="demoY"></h4></h4>
+	<h4 id="Z">Acceleration direction z Value: <h4 id="demoZ"></h4></h4>
+	<h4 id="A">Inclinaison direction x Value: <h4 id="demoA"></h4></h4>
+	<h4 id="B">Inclinaison direction y Value:<h4 id="demoB"></h4></h4>
+	<h4 id="C">Inclinaison direction z Value: <h4 id="demoC"></h4></h4>
 </div> 
 
 
 	<div id="graphs">
 <!-- Its really important that width and height have the same value as the variable "sizeofgraph" of the javascript file  -->
-	<canvas id="my" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
+	<canvas id="myX" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
 <!--add graphes--> 
 	<canvas id="myY" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
 	<canvas id="myZ" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas><br>
+	<div id="graph_discription"><h6>acceleration direction x <tab> acceleration direction y  <tab> acceleration direction z</h6></div>
 	<canvas id="myA" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas> 
 	<canvas id="myB" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas>
 	<canvas id="myC" width="150" height="150" style="border:1px solid #d3d3d3;"></canvas><br>
-
-	 <h5>Vitesse moyenne X</h5>	
+        <h6>Inclinaison direction x <tab> Inclinaison direction y  <tab> Inclinaison direction z</h6>	
 	</div>
 </div>
 <!--Stop Button -->
@@ -78,7 +81,7 @@
 
 
 
-<p id="ok">Give your Data a Keyword</p> <input type="text" name="keyword" id="keyword" >
+<p id="description_data">Give your Data a Keyword</p> <input type="text" name="keyword" id="keyword" >
 <button type="button" id="sendButton" onclick="sendDonnees()">Send your Data to the Server</button>
 <button id="refreshButton"onclick="location.reload();">Record Again</button>
 
