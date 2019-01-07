@@ -27,7 +27,7 @@
 	display: inline;
 }
 
-#SansButton , #AvecButton{
+#SansButton , #AvecButton, #stopButton{
 	width:85px;
 	height:85px;
 	background:#fafafa;
