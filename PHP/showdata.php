@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <!-- Projet de: Giovanni Simon, Nadime Barhoumi  -->
 <?php 
@@ -34,6 +34,21 @@ canvas {
 </head>
 
 <body>
+<header>
+<div>
+<a href="../HTML/website.php">
+    <input id="requete" type="submit" value="ENREGISTRER DES DONNEES">
+    </a>
+    <a href="../HTML/requete.php">
+    <input id="requete" type="submit" value="FAIRE UNE REQUETE">
+    </a>
+<a href="../PHP/deconnexion.php">
+    <input id="deco" type="submit" value="SE DECONNECTER">
+</a>
+</div>
+<h1 id="headline">Enregistrer vos mouvements </h1>
+</br>
+<hr>
 
 <h1 id="headline">Show my data</h1><hr>
 
