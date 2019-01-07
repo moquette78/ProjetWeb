@@ -1,6 +1,6 @@
 h1{
 	text-align: center;
-	font-size: 2em;
+	font-size: 3em;
 }
 
 #resultati, #resultatc{
@@ -22,11 +22,14 @@ form{
     flex-direction: column;
     vertical-align : middle;
 }
+
 input{
 	font-size: 1em;
 	height: 50px;
 	width: 300px;
 }
+
+
 .bouton{
 	font-size:0.8em;
 	padding:6px 0 6px 0;
