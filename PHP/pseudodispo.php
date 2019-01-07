@@ -2,7 +2,7 @@
 
     $pseudo=$_POST['pseudo'];   
 
-    $fichier = fopen('fichier.txt', 'r+'); //ouverture du fichier en lecture et ecriture
+    $fichier = fopen('..fichier.txt', 'r+'); //ouverture du fichier en lecture et ecriture
     $valide=false;
         while($ligne=fgets($fichier)){
             $mots = explode(" ", $ligne);
