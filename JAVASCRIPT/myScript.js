@@ -281,6 +281,7 @@
   drawGraphA();
   drawGraphB();
   drawGraphC();
+console.log(arrA);
   }
 
 function sendDonnees(){

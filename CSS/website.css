@@ -37,11 +37,8 @@
 	color:#555;
 }
 
-header form{
-	text-align: right;
-}
 
-#deco{
+#deco , #requette{
 	border:none;
 	padding:6px 0 6px 0;
 	border-radius:2px;
@@ -49,12 +46,19 @@ header form{
 	background:red;
 	font:bold 13px Arial;
 	color:white;
+	margin-right: 10px;
 }
 
 #coordinates h1 {
 
   display: inline;
     
+}
+
+header div{
+	display : flex;
+	float : right;
+	
 }
 
 .wrapper {
