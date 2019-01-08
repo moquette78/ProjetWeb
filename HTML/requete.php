@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 <html>
 <?php 
+//si l'utilisateur n'est pas connecté , on retourne au menu
 	session_start();
 	if(!isset($_SESSION['pseudo'])){
 		header('Location: index.html');
@@ -28,34 +28,32 @@
 <hr>
 
 </header>
-<fieldset>
+
 <form action ="../PHP/showdata.php" method = "POST"  onsubmit="return compareStrings(keyword_data.value);">
 
-
-<?php  //echo $_SESSION['pseudo']; 
+<?php  
+//formulaire de requete
  $json =  file_get_contents("../JSON/document.json");
  $json = json_decode($json,true); 
- //print_r($json); 
- // -- Creat Liste of Users 
+  
 	$count = 0;	
-	echo "Choissisez un utilisateur et des paramètres ";
-	echo "<label> Utilisateur : <select name='userData' id='userData'>";
+	echo "Choose one user and see his data ";
+	echo "<select name='userData' id='userData'>";
 	foreach(array_unique($json["user"]) as $value)	
 	echo "<option value='". $value . "'>" . $value . "</option>";
-	echo "<select></label>";
+	echo "<select>";
 ?>
 
-<label>Date de début : <input type="date" id="trip_start" name="start_date"
-       min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)"></label>
-<label>Date de fin : <input type="date" id="trip_fin" name="fin_date"
-       min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)"></label>
+<input type="date" id="trip_start" name="start_date"
+       min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)">
+<input type="date" id="trip_fin" name="fin_date"
+       min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)">
 
-<label>Mot clé : <input type="text" id="keyword_data" name="keyword_data" required placeholder="Keyword" onkeyup="showHint(this.value)" ></label>
-<label><input  value="Show Data of User" type ="submit"/></label>
+<input type="text" id="keyword_data" name="keyword_data" required placeholder="Keyword" onkeyup="showHint(this.value)" >
+<input  value="Show Data of User" type ="submit"/>
 <br>
 <p id="suggest">Suggestions-Keywords: <span id="txtHint" name="txtHint">Keys</span></p>
 </form>
-</fieldset>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
 <script type="text/javascript" src="../JAVASCRIPT/myScript.js"></script>
 </body>
