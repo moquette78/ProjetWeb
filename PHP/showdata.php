@@ -209,12 +209,12 @@ function drawGraphA() {
     var moyenne = 0;
     var i = 0;
     for(; i < arrA.length; i++){
-  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrA[i],10));
+  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrA[i],10)/4);
 	moyenne += parseInt(arrA[i],10);
     }
     document.getElementById("aMoyenne").innerHTML = Number.parseFloat(moyenne/i).toFixed(2) + "";
     ctx.lineWidth = 1;
-    ctx.strokeStyle = '#222222';
+    ctx.strokeStyle = '#ff69b4';
     
     ctx.stroke(); 
 
@@ -233,7 +233,7 @@ function drawGraphB() {
     var moyenne = 0;
     var i = 0;
     for(; i < arrB.length; i++){
-  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrB[i],10));
+  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrB[i],10)/2);
 	moyenne += parseInt(arrB[i],10);
     }
     document.getElementById("bMoyenne").innerHTML = Number.parseFloat(moyenne/i).toFixed(2) + "";
@@ -257,7 +257,7 @@ function drawGraphC() {
     var moyenne = 0;
     var i = 0;
     for(; i < arrC.length; i++){
-  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrC[i],10));
+  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrC[i],10)/2);
 	moyenne += parseInt(arrC[i],10);
     }
     document.getElementById("cMoyenne").innerHTML = Number.parseFloat(moyenne/i).toFixed(2) + "";
