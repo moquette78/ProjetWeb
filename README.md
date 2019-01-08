@@ -1,4 +1,4 @@
-Project de Giovanni et Nadime 
+Project de Giovanni Simon et Nadime Barhoumi
 
 
 
