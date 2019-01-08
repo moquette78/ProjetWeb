@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-
+	// lorsque le curseur est dans le input on colorise le label en rouge
     $("#pseudoi").focus(function(){
         $("#forpseudoi").css("color", "red");
     });
@@ -28,7 +28,7 @@ $(document).ready(function(){
     });
  
     $("#submitc").click(function(e){  // lorsque l'on click sur le bouton d'envoie
-        e.preventDefault();   // l'action du submit n'est pas delenchée, on doit dabord faire des verification
+        e.preventDefault();   // l'action du submit n'est pas delenchée, on doit dabord faire des verifications
         
         $.post(
             '../PHP/connexion.php', // pour valider la connexion
@@ -40,12 +40,12 @@ $(document).ready(function(){
             function(data){
  
                 if(data == 'Success'){
-                     // Le membre est connecté. Ajoutons lui un message dans la page HTML.
+                     // connexion ok donc on redirige vers website.php
  
                      document.location.href="website.php";
                 }
                 else{
-                     // Le membre n'a pas été connecté. (data vaut ici "failed")
+                     // echec de connexion donc on affiche un message d'echec
  
                      $("#resultatc").html("<p>Erreur lors de la connexion...</p>");
                 }
@@ -55,20 +55,20 @@ $(document).ready(function(){
          );
     });
 
-    $("#submiti").click(function(e){  // lorsque l'on click sur le bouton d'envoie
-        e.preventDefault();   // l'action du submit n'est pas delenchée, on doit dabord faire des verification
+    $("#submiti").click(function(e){  
+        e.preventDefault();
     
     if ($("#pseudoi").val()=="") {
         $("#resultati").html("<p>Pseudo invalide</p>");
     }
-    else if ($("#mdpi").val()=="") {
-        $("#resultati").html("<p>Vous devez rentrer un mot de passe</p>");
+    else if ($("#mdpi").val()=="") {   
+        $("#resultati").html("<p>Vous devez rentrer un mot de passe</p>");  //si le pseudo est vide on affiche une erreur
     }
     else{
         $.post(
-            '../PHP/inscription.php', // Un script PHP que l'on va créer juste après
+            '../PHP/inscription.php', // Pour valider l'inscription
             {
-                pseudo : $("#pseudoi").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
+                pseudo : $("#pseudoi").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à inscripion.php
                 mdp : $("#mdpi").val()
             },
  
@@ -78,7 +78,7 @@ $(document).ready(function(){
                      document.location.href="website.php"; 
                 }
                 else{
-                     // Le membre n'a pas été connecté. (data vaut ici "failed")
+                     // Si inscription.php retourne failed alors le pseudo existe deja
  
                      $("#resultati").html("<p>Pseudo deja existant ...</p>");
                 }
@@ -95,7 +95,7 @@ $(document).ready(function(){
             if (pseudo !=""){
 
                 $.post(
-                '../PHP/pseudodispo.php', // pour valider la connexion
+                '../PHP/pseudodispo.php', // on utilise php pour savoir si le pseudo est disponible
             {
                 pseudo : pseudo
             },
@@ -103,12 +103,12 @@ $(document).ready(function(){
             function(data){
  
                 if(data == 'Success'){
-                     // Le membre est connecté. Ajoutons lui un message dans la page HTML.
+                     //Le pseudo n'est pas disbonible donc on met le background en rouge
  
                     $('#pseudoi').css('background-color','rgba(255, 0, 0, 0.5)');
                 }
                 else{
-                     // Le membre n'a pas été connecté. (data vaut ici "failed")
+                     // pseudo disponible donc background en vert
  
                      $('#pseudoi').css('background-color','rgba(0, 255, 0, 0.5)');
                 }
