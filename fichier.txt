@@ -1,12 +1,3 @@
-gio 1
-nadime 2 
-a 3
-df fds
-fdsd dssfd
-dqs qsdsq
-jdjd zjs
-sdgssdg gsddsg
-dsqd sdqsdq
-ghgh gfhgfh
-azeertyj zaezertzet
-s sfdsd
+c c
+a a
+nadime nadime
