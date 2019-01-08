@@ -44,13 +44,13 @@
 	echo "<select>";
 ?>
 
-<input type="date" id="trip_start" name="start_date"
+Date de début<input type="date" id="trip_start" name="start_date"
        min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)">
-<input type="date" id="trip_fin" name="fin_date"
+Date de fin<input type="date" id="trip_fin" name="fin_date"
        min="2018-01-01" max="2019-12-31" required onchange="showHint(keyword_data.value)">
 
-<input type="text" id="keyword_data" name="keyword_data" required placeholder="Keyword" onkeyup="showHint(this.value)" >
-<input  value="Show Data of User" type ="submit"/>
+Mot clé<input type="text" id="keyword_data" name="keyword_data" required placeholder="Keyword" onkeyup="showHint(this.value)" >
+<input  id="envoyer" value="Show Data of User" type ="submit"/>
 <br>
 <p id="suggest">Suggestions-Keywords: <span id="txtHint" name="txtHint">Keys</span></p>
 </form>
