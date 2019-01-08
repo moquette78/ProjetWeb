@@ -2,7 +2,7 @@
 
     $pseudo=$_POST['pseudo'];   
 
-    $fichier = fopen('..fichier.txt', 'r+'); //ouverture du fichier en lecture et ecriture
+    $fichier = fopen('../fichier.txt', 'r+'); //ouverture du fichier en lecture et ecriture
     $valide=false;
         // parcourt le fichier et verifie que le pseudo est disponible, envoie success si il est deja prit et failed sinon
         while($ligne=fgets($fichier)){
