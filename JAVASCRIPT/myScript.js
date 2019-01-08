@@ -5,7 +5,7 @@
 
   var c;
   var ctx;
-  var sizeofgraph = 150; //this value needs the same as the value from the html document
+  var sizeofgraph = 180; //this value needs the same as the value from the html document
   var arrX = ["0"];
   var arrY = ["0"];
   var arrZ = ["0"];
@@ -217,12 +217,12 @@
    
 
     for(var i = 0; i < arrA.length; i++){
-  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrA[i],10));
-
+  	ctx.lineTo(i, (sizeofgraph/2) - parseInt(arrA[i],10)/4);
+	
   	}
 
     ctx.lineWidth = 1;
-    ctx.strokeStyle = '#222222';
+    ctx.strokeStyle = '#ff69b4';
     ctx.stroke(); 
   }
 
@@ -237,7 +237,7 @@
    
 
     for(var i = 0; i < arrB.length; i++){
-  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrB[i],10));
+  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrB[i],10)/2);
 
   	}
 
@@ -257,7 +257,7 @@
    
 
     for(var i = 0; i < arrC.length; i++){
-  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrC[i],10));
+  	ctx.lineTo(i, (sizeofgraph/2)- parseInt(arrC[i],10)/2);
 
   	}
 
@@ -361,3 +361,10 @@ function compareStrings(str){
 	return xxmlhttp.responseText == "true" ? true : false;
 	}
 }
+
+$(document).ready(function(){
+
+    $("#stopButton").click(function(e){
+        $("#sendingData").removeAttr("hidden");
+	});
+    });
