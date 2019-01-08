@@ -1,12 +1,12 @@
 form{
     display: flex;
     flex-direction: column;
-    width: 15em;
-   	justify-content: flex-start;
    	text-align: center;
    	width:1000px;
    	height: 350px;
-   	margin : auto;
+   	margin:auto;
+   	align-items:center;
+   	float : center;
 }
 
 input{
@@ -14,16 +14,23 @@ input{
 	height: 50px;
 	width: 300px;
 	text-align: center;
+	float:right;
 }
 
 #headline {
 
-	text-align: center;
+	margin-left :700px;
 	font-size: 2em;
 
 }
 select{
 	margin-top: 2em;
+	width: 300px;
+}
+
+label{
+	display: block;
+	color: orange;
 }
 
 #deco , #requete{
