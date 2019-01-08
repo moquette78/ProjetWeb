@@ -1,7 +1,7 @@
 //Code from Nadime Barhoumi and Giovanni Simon 
 
 
-  //For register the movements
+  //Global values for recording
 
   var c;
   var ctx;
@@ -9,7 +9,7 @@
   var arrX = ["0"];
   var arrY = ["0"];
   var arrZ = ["0"];
-  var second = 0;  //For the countUp function
+  var second = 0;  
   var x = 0;
   var y = 0;
   var z = 0;
@@ -24,7 +24,7 @@
   var SpeedOfRegister = 100; //for the function RegisterData
   var registerDataId = 0;
  
-
+//Get the values for of the moving portable
   var movements = function(event) {
     
     console.log(event.acceleration.x + ' m/s2');
@@ -36,7 +36,7 @@
     document.getElementById("demoZ").innerHTML = z //Math.trunc(event.accelerationIncludingGravity.z);
   }
 
-
+//This function will be called all 'second' time, it adds the values to the arrays
   function countUp () {
               second++;
               if(second == 59){
@@ -50,7 +50,7 @@
              arrC.push(c);
 
   }
-
+//Same as countUp
   function process(event) {
   a = Math.trunc(event.alpha);
   b = Math.trunc(event.beta);
@@ -60,21 +60,17 @@
     document.getElementById("demoC").innerHTML = c; 
 }
 
-   //ctx.lineTo(second,sizeofgraph-Math.trunc(event.accelerationIncludingGravity.x));
-          
-          //old = Math.trunc(event.accelerationIncludingGravity.x); 
 
-
-  function sansRedardeteur() { //sansRedardeteur
+//Prepares everything for the function without a countdown
+  function sansRedardeteur() { 
 
     if (window.DeviceOrientationEvent) {
-    //  window.addEventListener("devicemotion", motion, false ); 
     document.getElementById("startSansRetardateur").innerHTML = "<br>Start enregistrer ";
     document.getElementById('startAvecRetardateur').remove();
     document.getElementById('AvecButton').remove();
     document.getElementById('SansButton').remove();
     
-    //Hier listener installieren
+    //Adds listener
     window.addEventListener('devicemotion',movements);
     window.addEventListener("deviceorientation", process, false);
     registerData();
@@ -87,12 +83,13 @@
 
 
 
-
+//Prepares everything for the function with a countdown
   function avecRedardateur() {
-    
+
+
+//Installing the 3 second timer    
   document.getElementById("countdowntimer").textContent = "Decompte: " +   3;
 
-  // 
     var timeleft = 3;
       var downloadTimer = setInterval(function(){
       timeleft--;
@@ -101,7 +98,7 @@
       },1000);    
 
 
-  //SetTimeOut CALL! 
+  //Prepares everything for the recording
   setTimeout(function(){ 
     
       if (window.DeviceOrientationEvent) {
@@ -128,16 +125,15 @@
      
   }
 
-
-
-  //for killing the "setInterval you have to : clearInterval(counterId);
-  //Is saving all data every "second";
+//Installing a intervall which will be called all "SpeedoFRegister"
   function registerData(){
       registerDataId = setInterval(function(){
                           countUp();
-                        }, SpeedOfRegister); //SpeedOfRegister = 1000; so it calls every second countUP();
+                        }, SpeedOfRegister); //SpeedOfRegister = 100; so it calls every 1/10 seconds countUP();
     
   }
+
+//Same as RegisterData
   function registerSeconds(){
       idCountSeconds = setInterval(function(){
                           countSeconds++;
@@ -146,12 +142,12 @@
     
   }
 
+//Getting the HTML Tag for drawing the graphes for each value 
   function drawGraphX() {
      
     c = document.getElementById("myX");
     ctx = c.getContext("2d");
     
-   // ctx.strokeStyle = '#000000';
     ctx.moveTo(0,sizeofgraph/2);
     ctx.lineTo(sizeofgraph,sizeofgraph/2);
     ctx.moveTo(0, sizeofgraph/2);
@@ -266,15 +262,15 @@
     ctx.stroke(); 
   }
 
+//Cleans up and is stopping the intervalls. 
   function stopRecording(){
 
   window.removeEventListener('devicemotion',movements);
   window.removeEventListener("deviceorientation", process);
   clearInterval(registerDataId);
   clearInterval(idCountSeconds);
+  document.getElementById("stopButton").remove();
   
- document.getElementById("stopButton").remove();
- // document.getElementById("demoX").innerHTML = arrX.toString(); 
   drawGraphX();
   drawGraphY();
   drawGraphZ();   
@@ -284,13 +280,15 @@
   //console.log(arrA);
   }
 
+
+//Calls a PHP (envoi) page for safing the data.
 function sendDonnees(){
 
 if(document.getElementById("keyword").value === ""){
      
      document.getElementById("description_data").innerHTML = "Keyword can't be empty";
    } else{
-	//alert("KIK");
+
      $.ajax({
          url : '../PHP/envoi.php',
          type : 'POST', // Le type de la requête HTTP, ici devenu POST
@@ -318,7 +316,7 @@ if(document.getElementById("keyword").value === ""){
 
 
 
-
+//Is for the gethint.php, shows if user input has matching keywords in our database and gives the user suggestions
 function showHint(str) {
     if (str.length == 0) {
         document.getElementById("txtHint").innerHTML = "";
@@ -336,6 +334,8 @@ function showHint(str) {
     }
 }
 
+
+//Check if the keyword the user entered is a matching keyword in our database
 function compareStrings(str){
  
 	console.log("CompareStrings");
@@ -362,6 +362,7 @@ function compareStrings(str){
 	}
 }
 
+//Shows the bottom part of website.php if the recording was ended 
 $(document).ready(function(){
 
     $("#stopButton").click(function(e){
